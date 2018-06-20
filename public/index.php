@@ -72,17 +72,12 @@
         function genKey()
         {
             fetch('/action.php?method=create')
-                .then(function (response){
-                    return response.json();
-                })
-                .then(function (json){
-                    console.log('parsed json', json);
+                .then(response => response.json())
+                .then(json => {
                     $('#publickey').val(json.publickey);
                     $('#privatekey').val(json.privatekey);
                 })
-                .catch(function(ex) {
-                    console.log('parsing failed', ex)
-                });
+                .catch(ex => console.error('parsing failed', ex);
         }
 
         function encrypt()
@@ -93,16 +88,9 @@
                 method: 'POST',
                 body: form
             })
-                .then(function (response){
-                    return response.json();
-                })
-                .then(function (json){
-                    console.log('parsed json', json);
-                    $('#ciphertext-php').val(json.ciphertext);
-                })
-                .catch(function (ex) {
-                    console.log('parsing failed', ex);
-                });
+                .then(response => response.json());
+                .then(json => $('#ciphertext-php').val(json.ciphertext));
+                .catch(ex => console.log('parsing failed', ex));
         }
 
         function decrypt()
@@ -113,22 +101,14 @@
                 method: 'POST',
                 body: form
             })
-                .then(function (response){
-                    return response.json();
-                })
-                .then(function (json){
-                    console.log('parsed json', json);
-                    $('#plaintext-php').val(json.plaintext);
-                })
-                .catch(function (ex) {
-                    console.log('parsing failed', ex);
-                    alert('Something Error, please check the console log');
-                });
+                .then(response => response.json());
+                .then(json => $('#plaintext-php).val(json.plaintext));
+                .catch(ex => console.error('parsing failed', ex));
         }
 
         function download(filename)
         {
-            var url = '/action.php?method=download&file='+filename;
+            let url = `/action.php?method=download&file=${filename}`;
             window.open(url, '_blank');
         }
     </script>
