@@ -88,8 +88,8 @@
                 method: 'POST',
                 body: form
             })
-                .then(response => response.json());
-                .then(json => $('#ciphertext-php').val(json.ciphertext));
+                .then(response => response.json())
+                .then(json => $('#ciphertext-php').val(json.ciphertext))
                 .catch(ex => console.log('parsing failed', ex));
         }
 
@@ -101,8 +101,8 @@
                 method: 'POST',
                 body: form
             })
-                .then(response => response.json());
-                .then(json => $('#plaintext-php').val(json.plaintext));
+                .then(response => response.json())
+                .then(json => $('#plaintext-php').val(json.plaintext))
                 .catch(ex => console.error('parsing failed', ex));
         }
 
