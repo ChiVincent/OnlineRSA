@@ -102,7 +102,7 @@
                 body: form
             })
                 .then(response => response.json());
-                .then(json => $('#plaintext-php).val(json.plaintext));
+                .then(json => $('#plaintext-php').val(json.plaintext));
                 .catch(ex => console.error('parsing failed', ex));
         }
 
